@@ -32,6 +32,9 @@
   </button>
 </div>
 
+<div class="starlight-bg"></div>
+<div class="os-window">
+
 <nav class="sidebar" id="sidebar">
     <div class="logo">
       <img src="logo.svg" alt="Anifox"/>
@@ -622,6 +625,8 @@
   </main>
 </div>
 
+</div>
+
 <script>
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('overlay');
@@ -781,15 +786,6 @@
     pre.appendChild(btn);
   });
 
-  // Sync vertical scroll with command dock horizontal scroll
-  window.addEventListener('scroll', () => {
-    const dock = document.getElementById('sidebar');
-    if (!dock) return;
-    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    const maxScrollLeft = dock.scrollWidth - dock.clientWidth;
-    dock.scrollLeft = scrollPercent * maxScrollLeft;
-  }, { passive: true });
-</script>
-
+  </script>
 </body>
 </html>
