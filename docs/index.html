@@ -160,10 +160,10 @@
             </tbody>
           </table>
         </div>
-        <div class="code-label">Example — /map/16498</div>
+        <div class="code-label">Example — /map/113415</div>
         <pre><code><span class="p">{</span>
-  <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">16498</span><span class="p">,</span>
-  <span class="n">"malId"</span><span class="p">:</span> <span class="b">16498</span><span class="p">,</span>
+  <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">21087</span><span class="p">,</span>
+  <span class="n">"malId"</span><span class="p">:</span> <span class="b">21459</span><span class="p">,</span>
   <span class="n">"kitsuId"</span><span class="p">:</span> <span class="b">7442</span>
 <span class="p">}</span></code></pre>
       </div>
@@ -175,7 +175,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/episodes/<span class="param">:anilistId</span></span>
-          <a class="try-btn" href="/episodes/16498" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/episodes/11061" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Fetches episode lists from all providers in parallel for the given AniList ID. Each provider key contains either its episode data or an error object if unavailable.</p>
@@ -189,11 +189,11 @@
         <div class="code-label">Response shape</div>
         <pre><code><span class="p">{</span>
   <span class="n">"reanime"</span><span class="p">: {</span>
-    <span class="n">"meta"</span><span class="p">: {</span> <span class="n">"title"</span><span class="p">:</span> <span class="s">"Attack on Titan"</span><span class="p">,</span> <span class="n">"malId"</span><span class="p">:</span> <span class="b">16498</span> <span class="p">},</span>
+    <span class="n">"meta"</span><span class="p">: {</span> <span class="n">"title"</span><span class="p">:</span> <span class="s">"Death Note"</span><span class="p">,</span> <span class="n">"malId"</span><span class="p">:</span> <span class="b">1535</span> <span class="p">},</span>
     <span class="n">"episodes"</span><span class="p">: {</span>
       <span class="n">"sub"</span><span class="p">: [</span>
         <span class="p">{</span>
-          <span class="n">"id"</span><span class="p">:</span>     <span class="s">"watch/reanime/16498/sub/reanime-1"</span><span class="p">,</span>
+          <span class="n">"id"</span><span class="p">:</span>     <span class="s">"watch/reanime/101922/sub/reanime-1"</span><span class="p">,</span>
           <span class="n">"number"</span><span class="p">:</span> <span class="b">1</span><span class="p">,</span>
           <span class="n">"title"</span><span class="p">:</span>  <span class="s">"To You, 2,000 Years in the Future"</span><span class="p">,</span>
           <span class="n">"filler"</span><span class="p">:</span> <span class="b">false</span><span class="p">,</span>
@@ -215,7 +215,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/episodes/<span class="param">:provider</span>/<span class="param">:anilistId</span></span>
-          <a class="try-btn" href="/episodes/reanime/16498" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/episodes/reanime/21087" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Fetch episode data from one or more specific providers. Chain multiple provider names in the path. Use <code>?map=false</code> to skip the ID map lookup.</p>
@@ -229,9 +229,9 @@
           </table>
         </div>
         <div class="code-label">Examples</div>
-        <pre><code><span class="k">GET</span> /episodes/reanime/16498
-<span class="k">GET</span> /episodes/reanime/senshi/16498
-<span class="k">GET</span> /episodes/reanime/senshi/anibd/16498<span class="p">?map=false</span></code></pre>
+        <pre><code><span class="k">GET</span> /episodes/reanime/21
+<span class="k">GET</span> /episodes/reanime/senshi/20605
+<span class="k">GET</span> /episodes/reanime/senshi/anibd/1<span class="p">?map=false</span></code></pre>
       </div>
     </section>
 
@@ -243,7 +243,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/mkissa/<span class="param">:id</span>/<span class="param">sub|dub</span>/mkissa-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/mkissa/16498/sub/mkissa-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/mkissa/113415/sub/mkissa-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources for the given MKissa episode. The episode ID comes directly from the <code>id</code> field in the episodes list response.</p>
@@ -258,7 +258,7 @@
         </div>
         <div class="code-label">Response</div>
         <pre><code><span class="p">{</span>
-  <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">16498</span><span class="p">,</span>
+  <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">20</span><span class="p">,</span>
   <span class="n">"episode"</span><span class="p">:</span>   <span class="b">1</span><span class="p">,</span>
   <span class="n">"audio"</span><span class="p">:</span>     <span class="s">"sub"</span><span class="p">,</span>
   <span class="n">"streams"</span><span class="p">: [</span>
@@ -281,7 +281,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/reanime/<span class="param">:id</span>/<span class="param">sub|dub</span>/reanime-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/reanime/16498/sub/reanime-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/reanime/21087/sub/reanime-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Resolves stream sources from Reanime using AniList ID confirmation via cover image CDN URLs and detail endpoint matching. Returns decrypted HLS streams.</p>
@@ -299,7 +299,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/stream/reanime/<span class="param">:id</span>/<span class="param">sub|dub</span>/<span class="param">:ep</span></span>
-          <a class="try-btn" href="/stream/reanime/16498/sub/1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/stream/reanime/21087/sub/1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Direct stream variant — returns the raw stream response without the watch wrapper. Useful for direct playback.</p>
@@ -313,7 +313,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/anikoto/<span class="param">:id</span>/<span class="param">sub|dub</span>/anikoto-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/anikoto/16498/sub/anikoto-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/anikoto/21459/sub/anikoto-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from Anikoto for the specified episode.</p>
@@ -335,7 +335,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/animegg/<span class="param">:id</span>/<span class="param">sub|dub</span>/animegg-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/animegg/16498/sub/animegg-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/animegg/11061/sub/animegg-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from AnimeGG for the specified episode.</p>
@@ -357,7 +357,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/anineko/<span class="param">:id</span>/<span class="param">sub|dub</span>/anineko-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/anineko/16498/sub/anineko-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/anineko/1535/sub/anineko-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from AniNeko for the specified episode.</p>
@@ -379,7 +379,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/anidbapp/<span class="param">:id</span>/<span class="param">sub|dub</span>/anidbapp-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/anidbapp/16498/sub/anidbapp-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/anidbapp/101922/sub/anidbapp-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from AniDBApp. Uses exact AniList ID confirmation after fuzzy title search before resolving streams.</p>
@@ -401,7 +401,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/2dhive/<span class="param">:id</span>/<span class="param">sub|dub</span>/2dhive-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/2dhive/16498/sub/2dhive-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/2dhive/21/sub/2dhive-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from 2DHive.</p>
@@ -419,7 +419,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/stream/2dhive/<span class="param">:id</span>/<span class="param">sub|dub</span>/<span class="param">:ep</span></span>
-          <a class="try-btn" href="/stream/2dhive/16498/sub/1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/stream/2dhive/21/sub/1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Direct stream variant for 2DHive.</p>
@@ -429,7 +429,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/stream/2dhive/download/<span class="param">:id</span>/<span class="param">sub|dub</span>/<span class="param">:ep</span></span>
-          <a class="try-btn" href="/stream/2dhive/download/16498/sub/1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/stream/2dhive/21/sub/1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Download variant — returns a direct downloadable stream URL from 2DHive.</p>
@@ -487,7 +487,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/anibd/<span class="param">:id</span>/<span class="param">sub|dub</span>/anibd-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/anibd/16498/sub/anibd-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/anibd/20605/sub/anibd-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from AniBD. Resolves the player link, then extracts and returns the HLS URL directly.</p>
@@ -509,7 +509,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/senshi/<span class="param">:id</span>/<span class="param">sub|dub</span>/senshi-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/senshi/16498/sub/senshi-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/senshi/1/sub/senshi-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from Senshi. Uses MAL ID directly — no slug resolution. Returns all available sources including HLS, alternate servers, FileMoon embeds, and download links when present.</p>
@@ -524,8 +524,8 @@
         </div>
         <div class="code-label">Response</div>
         <pre><code><span class="p">{</span>
-  <span class="n">"anilistId"</span><span class="p">:</span>  <span class="b">16498</span><span class="p">,</span>
-  <span class="n">"malId"</span><span class="p">:</span>      <span class="b">16498</span><span class="p">,</span>
+  <span class="n">"anilistId"</span><span class="p">:</span>  <span class="b">1735</span><span class="p">,</span>
+  <span class="n">"malId"</span><span class="p">:</span>      <span class="b">110277</span><span class="p">,</span>
   <span class="n">"episode"</span><span class="p">:</span>    <span class="b">1</span><span class="p">,</span>
   <span class="n">"audio"</span><span class="p">:</span>      <span class="s">"sub"</span><span class="p">,</span>
   <span class="n">"intro"</span><span class="p">:</span>      <span class="p">{</span> <span class="n">"start"</span><span class="p">:</span> <span class="b">123</span><span class="p">,</span> <span class="n">"end"</span><span class="p">:</span> <span class="b">215</span> <span class="p">},</span>
@@ -586,7 +586,7 @@
         <div class="endpoint-head">
           <span class="method-pill get">GET</span>
           <span class="endpoint-path">/watch/animedunya/<span class="param">:id</span>/<span class="param">sub|dub</span>/animedunya-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/animedunya/16498/sub/animedunya-1" target="_blank">Try it ↗</a>
+          <a class="try-btn" href="/watch/animedunya/20/sub/animedunya-1" target="_blank">Try it ↗</a>
         </div>
         <div class="endpoint-body">
           <p class="endpoint-desc">Returns stream sources from AnimeDunya for the specified episode. Streams are served as direct HLS playlists with multiple subtitle tracks included.</p>
@@ -602,7 +602,7 @@
         <div class="code-label">Response</div>
         <pre><code><span class="p">{</span>
   <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">16498</span><span class="p">,</span>
-  <span class="n">"malId"</span><span class="p">:</span>     <span class="b">16498</span><span class="p">,</span>
+  <span class="n">"malId"</span><span class="p">:</span>     <span class="b">113415</span><span class="p">,</span>
   <span class="n">"episode"</span><span class="p">:</span>   <span class="b">1</span><span class="p">,</span>
   <span class="n">"audio"</span><span class="p">:</span>     <span class="s">"sub"</span><span class="p">,</span>
   <span class="n">"streams"</span><span class="p">: [</span>
