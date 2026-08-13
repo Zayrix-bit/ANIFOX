@@ -129,7 +129,7 @@ export default function Watch() {
       }),
       getProviders().then(provs => {
         // Priority list of providers that return native HLS (m3u8) with SOFT SUBS
-        const priority = ['anikoto', 'mkissa', '2dhive', 'animegg'];
+        const priority = ['anikoto', '2dhive', 'animegg'];
         
         // Sort providers so soft-sub ones are scraped first in chunks
         const sortedProvs = [...provs].sort((a, b) => {

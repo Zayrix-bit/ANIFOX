@@ -57,7 +57,7 @@
       </div>
       <div class="nav-section">
         <div class="nav-label">Watch</div>
-        <a class="nav-item" href="#watch-mkissa"><span class="method">GET</span>MKissa</a>
+
         <a class="nav-item" href="#watch-reanime"><span class="method">GET</span>Reanime</a>
         <a class="nav-item" href="#watch-anikoto"><span class="method">GET</span>Anikoto</a>
         <a class="nav-item" href="#watch-animegg"><span class="method">GET</span>AnimeGG</a>
@@ -104,8 +104,7 @@
       <h2>Providers</h2>
       <p>Thirteen providers are available. Each uses exact-match identity resolution via AniList or MAL IDs — no blind fuzzy matching.</p>
       <div class="provider-grid">
-        <div class="provider-card" style="--i:0"><div class="provider-name">mkissa</div><div class="provider-meta">MKissa</div></div>
-        <div class="provider-card" style="--i:1"><div class="provider-name">reanime</div><div class="provider-meta">Reanime</div></div>
+        <div class="provider-card" style="--i:0"><div class="provider-name">reanime</div><div class="provider-meta">Reanime</div></div>
         <div class="provider-card" style="--i:2"><div class="provider-name">anikoto</div><div class="provider-meta">Anikoto</div></div>
         <div class="provider-card" style="--i:3"><div class="provider-name">animegg</div><div class="provider-meta">AnimeGG</div></div>
         <div class="provider-card" style="--i:4"><div class="provider-name">anineko</div><div class="provider-meta">AniNeko</div></div>
@@ -137,7 +136,7 @@
         <pre><code><span class="p">{</span>
   <span class="n">"name"</span><span class="p">:</span> <span class="s">"Anifox API 2.2"</span><span class="p">,</span>
   <span class="n">"cache"</span><span class="p">:</span> <span class="b">false</span><span class="p">,</span>
-  <span class="n">"providers"</span><span class="p">: [</span><span class="s">"mkissa"</span><span class="p">,</span> <span class="s">"reanime"</span><span class="p">,</span> <span class="s">"..."</span><span class="p">],</span>
+  <span class="n">"providers"</span><span class="p">: [</span><span class="s">"reanime"</span><span class="p">,</span> <span class="s">"anikoto"</span><span class="p">,</span> <span class="s">"..."</span><span class="p">],</span>
   <span class="n">"routes"</span><span class="p">: [</span><span class="s">"/map/:anilistId"</span><span class="p">,</span> <span class="s">"..."</span><span class="p">]</span>
 <span class="p">}</span></code></pre>
       </div>
@@ -235,45 +234,7 @@
       </div>
     </section>
 
-    <hr class="divider"/>
 
-    <section class="section" id="watch-mkissa">
-      <h2>MKissa</h2>
-      <div class="endpoint">
-        <div class="endpoint-head">
-          <span class="method-pill get">GET</span>
-          <span class="endpoint-path">/watch/mkissa/<span class="param">:id</span>/<span class="param">sub|dub</span>/mkissa-<span class="param">:ep</span></span>
-          <a class="try-btn" href="/watch/mkissa/113415/sub/mkissa-1" target="_blank">Try it ↗</a>
-        </div>
-        <div class="endpoint-body">
-          <p class="endpoint-desc">Returns stream sources for the given MKissa episode. The episode ID comes directly from the <code>id</code> field in the episodes list response.</p>
-          <table class="params-table">
-            <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td class="param-name">:id</td><td class="param-type">integer</td><td class="param-desc">AniList media ID</td></tr>
-              <tr><td class="param-name">sub|dub</td><td class="param-type">string</td><td class="param-desc">Audio track preference</td></tr>
-              <tr><td class="param-name">:ep</td><td class="param-type">integer</td><td class="param-desc">Episode number</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="code-label">Response</div>
-        <pre><code><span class="p">{</span>
-  <span class="n">"anilistId"</span><span class="p">:</span> <span class="b">20</span><span class="p">,</span>
-  <span class="n">"episode"</span><span class="p">:</span>   <span class="b">1</span><span class="p">,</span>
-  <span class="n">"audio"</span><span class="p">:</span>     <span class="s">"sub"</span><span class="p">,</span>
-  <span class="n">"streams"</span><span class="p">: [</span>
-    <span class="p">{</span>
-      <span class="n">"url"</span><span class="p">:</span>      <span class="s">"https://..."</span><span class="p">,</span>
-      <span class="n">"type"</span><span class="p">:</span>     <span class="s">"hls"</span><span class="p">,</span>
-      <span class="n">"server"</span><span class="p">:</span>   <span class="s">"Server Name"</span><span class="p">,</span>
-      <span class="n">"referer"</span><span class="p">:</span>  <span class="s">"https://..."</span><span class="p">,</span>
-      <span class="n">"priority"</span><span class="p">:</span> <span class="b">5</span><span class="p">,</span>
-      <span class="n">"isActive"</span><span class="p">:</span> <span class="b">true</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span></code></pre>
-      </div>
-    </section>
 
     <section class="section" id="watch-reanime">
       <h2>Reanime</h2>

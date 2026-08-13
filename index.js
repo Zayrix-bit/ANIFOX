@@ -1,6 +1,6 @@
 import { getMedia } from "./core/anilist.js";
 import { mapAnimeIds } from "./core/mapper.js";
-import mkissaHandler from "./providers/mkissa.js";
+
 import reanimeHandler from "./providers/reanime.js";
 import anikotoHandler from "./providers/anikoto.js";
 import animeggHandler from "./providers/animegg.js";
@@ -129,18 +129,7 @@ export default {
       }
     }
 
-    m = path.match(/^\/watch\/mkissa\/(\d+)\/(sub|dub)\/mkissa-(\d+)\/?$/);
-    if (m) {
-      const [, id, audio, ep] = m;
-      return cachedWatch(
-        `watch:mkissa:${id}:${audio}:${ep}`,
-        () => mkissaHandler.fetch(request)
-      );
-    }
 
-    if (path.match(/^\/captcha\/mkissa\/?$/)) {
-      return mkissaHandler.fetch(request);
-    }
 
     m = path.match(/^\/watch\/reanime\/(\d+)\/(sub|dub)\/reanime-(\d+)\/?$/);
     if (m) {
@@ -266,7 +255,7 @@ export default {
       name: "Anivexa API 2.1",
       cache: _CACHE_ENABLED,
       providers: [
-        "mkissa",
+
         "reanime",
         "anikoto",
         "animegg",
@@ -284,7 +273,7 @@ export default {
         "/map/:anilistId",
         "/episodes/:anilistId",
         "/episodes/:provider[/:provider...]/:anilistId?map=true|false",
-        "/watch/mkissa/:id/sub|dub/mkissa-:ep",
+
         "/watch/reanime/:id/sub|dub/reanime-:ep",
         "/stream/reanime/:id/sub|dub/:ep",
         "/watch/anikoto/:id/sub|dub/anikoto-:ep",
