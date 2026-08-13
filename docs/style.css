@@ -1,27 +1,27 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:           #09090d;
-  --sidebar:      #0d0d12;
-  --border:       #1c1c26;
-  --border-hi:    #2a2a3a;
-  --surface:      #111118;
-  --surface-hi:   #16161f;
-  --text:         #eaeaf4;
-  --muted:        #63637a;
-  --faint:        #1e1e2a;
-  --accent:       #f97316;
-  --accent-dim:   rgba(249, 115, 22,.1);
-  --accent-glow:  rgba(249, 115, 22,.18);
-  --accent-mid:   rgba(249, 115, 22,.06);
+  --bg:           #000000;
+  --sidebar:      #050505;
+  --border:       #333333;
+  --border-hi:    #ff8c00;
+  --surface:      #0a0a0a;
+  --surface-hi:   #111111;
+  --text:         #f97316;
+  --muted:        #b45309;
+  --faint:        #1f0e03;
+  --accent:       #ff8c00;
+  --accent-dim:   rgba(255, 140, 0, .1);
+  --accent-glow:  rgba(255, 140, 0, .18);
+  --accent-mid:   rgba(255, 140, 0, .06);
   --green:        #4ade80;
   --green-dim:    rgba(74,222,128,.1);
   --purple:       #ef4444;
   --purple-dim:   rgba(239, 68, 68,.1);
   --sidebar-w:    264px;
   --header-h:     56px;
-  --radius:       10px;
-  --font:         'Inter', system-ui, sans-serif;
+  --radius:       0px;
+  --font:         'JetBrains Mono', 'Courier New', monospace;
   --mono:         'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -31,10 +31,24 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: none;
   overflow-x: hidden;
+}
+
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 9999;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -46,51 +60,14 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
 }
 
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  will-change: transform;
-}
-
-.bg-orb-1 {
-  width: 640px; height: 640px;
-  background: radial-gradient(circle, rgba(249, 115, 22,.11) 0%, transparent 70%);
-  top: -8%; left: 15%;
-  animation: orbFloat1 18s ease-in-out infinite;
-}
-
-.bg-orb-2 {
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(239, 68, 68,.08) 0%, transparent 70%);
-  top: 35%; right: -8%;
-  animation: orbFloat2 22s ease-in-out infinite;
-}
-
-.bg-orb-3 {
-  width: 360px; height: 360px;
-  background: radial-gradient(circle, rgba(74,222,128,.06) 0%, transparent 70%);
-  bottom: 8%; left: 28%;
-  animation: orbFloat3 26s ease-in-out infinite;
-}
-
-@keyframes orbFloat1 {
-  0%,100% { transform: translate(0,0); }
-  33%     { transform: translate(30px,-40px); }
-  66%     { transform: translate(-20px,25px); }
-}
-@keyframes orbFloat2 {
-  0%,100% { transform: translate(0,0); }
-  40%     { transform: translate(-35px,30px); }
-  70%     { transform: translate(20px,-20px); }
-}
-@keyframes orbFloat3 {
-  0%,100% { transform: translate(0,0); }
-  30%     { transform: translate(25px,-30px); }
-  65%     { transform: translate(-15px,20px); }
-}
+.bg-orb { display: none; }
 
 .layout {
   display: flex;
