@@ -242,7 +242,7 @@ export default function Watch() {
       }
 
       let heldFallbackServer: ServerInstance | null = null;
-      const chunkSize = 3;
+      const chunkSize = 6;
       
       for (let i = 0; i < orderedProviders.length; i += chunkSize) {
         if (isCancelled) break;

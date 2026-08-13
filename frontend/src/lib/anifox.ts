@@ -62,7 +62,7 @@ export const getStream = async (watchId: string, customSignal?: AbortSignal): Pr
   
   // Add a 10-second timeout so a slow provider doesn't block the entire queue
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
   
   if (customSignal) {
     customSignal.addEventListener('abort', () => controller.abort());
