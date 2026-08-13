@@ -190,10 +190,10 @@ __name(evalModernCryptoChunk, "evalModernCryptoChunk");
 function evalCryptoChunk(chunk) {
   try {
     return evalModernCryptoChunk(chunk);
-  } catch {}
+  } catch { }
   try {
     return evalOldCryptoChunk(chunk);
-  } catch {}
+  } catch { }
   return null;
 }
 __name(evalCryptoChunk, "evalCryptoChunk");
@@ -722,7 +722,7 @@ async function warmWatchPage(showId, show, epNum, audio) {
         "Upgrade-Insecure-Requests": "1"
       })
     }, FETCH_TIMEOUT_MS);
-  } catch {}
+  } catch { }
 }
 __name(warmWatchPage, "warmWatchPage");
 
@@ -1011,7 +1011,7 @@ async function extractSource(src) {
       const m = url.match(/\/e\/([a-zA-Z0-9]+)/i);
       if (m?.[1]) extractedUrl = await extractStreamlare(m[1]);
     }
-  } catch {}
+  } catch { }
   return {
     name: src.sourceName || "",
     url,
@@ -1068,7 +1068,7 @@ async function fetchKitsuId(malId) {
       const itemJson = await itemRes.json();
       return itemJson.data?.id ? Number(itemJson.data.id) : null;
     }
-  } catch {}
+  } catch { }
   return null;
 }
 __name(fetchKitsuId, "fetchKitsuId");
@@ -1086,7 +1086,7 @@ async function fetchTMDB(titles, year, format) {
         result = json.results[0];
         break;
       }
-    } catch {}
+    } catch { }
   }
   if (!result) return { themoviedbId: null, imdbId: null, thetvdbId: null };
   try {
@@ -1304,6 +1304,13 @@ async function handleWatch(anilistId, audio, epNum, captcha = null) {
   const sources = await Promise.all((episode.sourceUrls || []).map(extractSource));
   sources.sort((a, b) => b.priority - a.priority);
   const epMeta = anizip?.episodes?.[String(epNum)] ?? {};
+  const streams = sources.map(src => ({
+    server: src.name || "HD",
+    url: src.extractedUrl || src.url,
+    type: src.extractedType === 'hls' ? 'hls' : (src.extractedType === 'mp4' ? 'mp4' : 'embed'),
+    embedUrl: src.url
+  }));
+
   const data = {
     anilistId: Number(anilistId),
     mkissaId: showId,
@@ -1311,7 +1318,7 @@ async function handleWatch(anilistId, audio, epNum, captcha = null) {
     audio,
     intro: epMeta.intro ?? null,
     outro: epMeta.outro ?? null,
-    sources
+    streams
   };
   watchMemoryCache.set(cacheKey, { data, expiresAt: Date.now() + WATCH_MEMORY_TTL });
   return data;
