@@ -780,6 +780,15 @@
     });
     pre.appendChild(btn);
   });
+
+  // Sync vertical scroll with command dock horizontal scroll
+  window.addEventListener('scroll', () => {
+    const dock = document.getElementById('sidebar');
+    if (!dock) return;
+    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const maxScrollLeft = dock.scrollWidth - dock.clientWidth;
+    dock.scrollLeft = scrollPercent * maxScrollLeft;
+  }, { passive: true });
 </script>
 
 </body>
