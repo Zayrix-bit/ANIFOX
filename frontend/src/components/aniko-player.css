@@ -913,7 +913,7 @@
 
 .aniko-player-root .ap-volboost-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--ap-accent), #818cf8, #a78bfa);
+  background: linear-gradient(90deg, var(--ap-accent), #f97316, #fb923c);
   border-radius: 4px;
   transition: width 0.08s linear;
   box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);

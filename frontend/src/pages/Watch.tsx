@@ -817,11 +817,11 @@ export default function Watch() {
                           </div>
                           <div className="related-info">
                             <h4 className="related-title">
-                               <span className="related-bullet" style={{backgroundColor: '#a855f7'}}></span>
+                               <span className="related-bullet" style={{backgroundColor: '#f97316'}}></span>
                                {edge.node.title.english || edge.node.title.romaji}
                             </h4>
                             <div className="related-meta">
-                               <span className="related-tag" style={{color: '#a855f7', backgroundColor: 'rgba(168, 85, 247, 0.1)'}}>{edge.relationType.replace('_', ' ')}</span>
+                               <span className="related-tag" style={{color: '#f97316', backgroundColor: 'rgba(249, 115, 22, 0.1)'}}>{edge.relationType.replace('_', ' ')}</span>
                             </div>
                           </div>
                         </div>
@@ -965,13 +965,13 @@ export default function Watch() {
 }
 
 .tb-btn.active {
-  color: #c084fc;
+  color: #ef4444;
 }
 
 .tb-square {
   width: 10px;
   height: 10px;
-  background-color: #c084fc;
+  background-color: #ef4444;
   border-radius: 2px;
 }
 
@@ -1164,7 +1164,7 @@ export default function Watch() {
 }
 .flat-server-item.active {
   background-color: transparent !important;
-  color: #a78bfa !important;
+  color: #fb923c !important;
 }
 .flat-server-item.active .server-badge {
   /* don't override outline styles */
@@ -1322,9 +1322,9 @@ export default function Watch() {
   color: #fff;
 }
 .ep-grid-btn.active {
-  background-color: #c4b5fd;
+  background-color: #fdba74;
   color: #000;
-  border-color: #c4b5fd;
+  border-color: #fdba74;
 }
 
 /* Scrollbar styling for episodes list */
@@ -1504,7 +1504,7 @@ export default function Watch() {
 }
 
 .season-card-item.active {
-  border-color: #c084fc;
+  border-color: #ef4444;
 }
 
 .season-bg {
@@ -1533,7 +1533,7 @@ export default function Watch() {
 }
 
 .season-card-item.active .season-overlay {
-  color: #c084fc;
+  color: #ef4444;
 }
 
 /* ---------------------------------

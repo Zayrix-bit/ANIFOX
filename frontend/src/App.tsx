@@ -27,9 +27,9 @@ function App() {
   --bg-hover: #1e1c2e;
   --bg-header: rgba(11, 10, 21, 0.85);
   
-  --primary: #8a2be2;
-  --primary-hover: #7c26cb;
-  --primary-glow: rgba(138, 43, 226, 0.4);
+  --primary: #f97316;
+  --primary-hover: #ea580c;
+  --primary-glow: rgba(249, 115, 22, 0.4);
   
   --text-main: #fafafa;
   --text-muted: #a1a1aa;

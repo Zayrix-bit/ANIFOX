@@ -181,7 +181,7 @@ export default function Home() {
         .hero-content-inner { max-width: 600px; }
         
         .hero-top-badge { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; margin-bottom: 1rem; }
-        .hero-rank-badge { background-color: #2a2542; color: #d8b4fe; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
+        .hero-rank-badge { background-color: #431407; color: #fdba74; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
         
         .hero-title { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(0,0,0,0.5); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         
@@ -193,7 +193,7 @@ export default function Home() {
         .hero-description { font-size: 0.95rem; color: #a1a1aa; margin-bottom: 2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; }
         
         .hero-meta-boxes { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .meta-box { background-color: #171526; border: 1px solid #2a2542; border-radius: 12px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.75rem; min-width: 110px; }
+        .meta-box { background-color: #171526; border: 1px solid #431407; border-radius: 12px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.75rem; min-width: 110px; }
         .meta-box-icon { display: flex; align-items: center; justify-content: center; }
         .meta-box-text { display: flex; flex-direction: column; }
         .meta-box-val { font-size: 0.9rem; font-weight: 700; color: #fff; line-height: 1.2; }
@@ -222,7 +222,7 @@ export default function Home() {
         .anixo-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
         .anixo-badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.2rem; }
         .dark-badge { background: rgba(0,0,0,0.6); color: #fff; backdrop-filter: blur(4px); }
-        .purple-badge { background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; }
+        .purple-badge { background: linear-gradient(135deg, #f97316, #ea580c); color: #fff; }
         
         .anixo-card-bottom { padding: 0.25rem; }
         .anixo-card-title { color: #fff; font-size: 0.9rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.1rem; }
@@ -247,11 +247,11 @@ export default function Home() {
 
         .features-section { display: flex; justify-content: space-between; background-color: #12101c; border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; border: 1px solid #1e1c2e; flex-wrap: wrap; gap: 1rem; }
         .feature-item { display: flex; align-items: center; gap: 1rem; }
-        .feature-icon { color: var(--primary); background: rgba(138, 43, 226, 0.1); padding: 0.75rem; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .feature-icon { color: var(--primary); background: rgba(249, 115, 22, 0.1); padding: 0.75rem; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
         .feature-text h4 { color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
         .feature-text p { color: #8a8898; font-size: 0.8rem; }
         
-        .join-community-banner { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(90deg, #16112c 0%, #1a1435 100%); border-radius: 12px; padding: 1.5rem 2rem; border: 1px solid #2a2542; margin-bottom: 4rem; }
+        .join-community-banner { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(90deg, #16112c 0%, #1a1435 100%); border-radius: 12px; padding: 1.5rem 2rem; border: 1px solid #431407; margin-bottom: 4rem; }
         .join-banner-text h3 { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
         .join-banner-text p { color: #8a8898; font-size: 0.85rem; }
         .join-btn { padding: 0.6rem 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; }
