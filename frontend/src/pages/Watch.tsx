@@ -129,7 +129,7 @@ export default function Watch() {
       }),
       getProviders().then(provs => {
         // Priority list of providers that return native HLS (m3u8) with SOFT SUBS
-        const priority = ['anikoto', '2dhive', 'animegg'];
+        const priority = ['anikoto', 'animegg'];
         
         // Sort providers so soft-sub ones are scraped first in chunks
         const sortedProvs = [...provs].sort((a, b) => {
@@ -241,14 +241,15 @@ export default function Watch() {
         ];
       }
 
-      // Phase 1: Fire the 2 fastest providers first (anikoto + animegg)
-      const fastProviders = ['anikoto', 'animegg'];
-      const phase1 = orderedProviders.filter(p => fastProviders.includes(p));
-      const phase2 = orderedProviders.filter(p => !fastProviders.includes(p));
       let heldFallbackServer: ServerInstance | null = null;
-
-      const fireProviders = (chunk: string[]) => {
-        return chunk.map(provider => {
+      const chunkSize = 2;
+      
+      for (let i = 0; i < orderedProviders.length; i += chunkSize) {
+        if (isCancelled) break;
+        
+        const chunk = orderedProviders.slice(i, i + chunkSize);
+        
+        const promises = chunk.map(provider => {
            const watchId = `watch/${provider}/${id}/${audioMode}/${provider}-${selectedEpisode.number}`;
            
            return getStream(watchId, fetchController.signal)
@@ -307,6 +308,7 @@ export default function Watch() {
                 if (data.allServers) {
                   data.allServers.forEach((s, idx) => {
                      if (!newServers.find(x => x.url === s.embed)) {
+                        // Embeds typically don't expose sub tracks to our API, default to HARD SUB
                         newServers.push({ id: `allserver-${provider}-${idx}`, name: s.name ? `${provider} (${s.name})` : `${provider} ${idx+1}`, type: 'embed', url: s.embed, provider, subType: 'HARD SUB', subtitles: [] });
                      }
                   });
@@ -325,14 +327,17 @@ export default function Watch() {
                    if (anyHls && !isFirstHlsSet) {
                       if (preferredProvider) {
                          if (provider === preferredProvider) {
+                            // The preferred provider finished successfully, play it instantly!
                             setActiveServer(anyHls);
                             isFirstHlsSet = true;
                          } else {
+                            // A non-preferred provider finished first, hold it in background
                             if (!heldFallbackServer) {
                                heldFallbackServer = anyHls;
                             }
                          }
                       } else {
+                         // No preference set, normal race logic
                          setActiveServer(anyHls);
                          isFirstHlsSet = true;
                       }
@@ -349,28 +354,17 @@ export default function Watch() {
                 }
              });
         });
-      };
 
-      // Phase 1: Fire fastest providers first
-      if (phase1.length > 0) {
-        await Promise.allSettled(fireProviders(phase1));
-      }
-      
-      // Smart Fallback after Phase 1
-      if (preferredProvider && !isFirstHlsSet && heldFallbackServer) {
-        setActiveServer(heldFallbackServer);
-        isFirstHlsSet = true;
-      }
-
-      // Phase 2: Fire all remaining providers at once (no chunking)
-      if (!isCancelled && phase2.length > 0) {
-        await Promise.allSettled(fireProviders(phase2));
-      }
-
-      // Final fallback
-      if (!isFirstHlsSet && heldFallbackServer) {
-        setActiveServer(heldFallbackServer);
-        isFirstHlsSet = true;
+        // Wait for the current chunk to finish completely before firing the next batch
+        await Promise.allSettled(promises);
+        
+        // Smart Fallback: If the chunk contained the preferred provider but it failed or timed out
+        if (preferredProvider && chunk.includes(preferredProvider) && !isFirstHlsSet) {
+           if (heldFallbackServer) {
+              setActiveServer(heldFallbackServer);
+              isFirstHlsSet = true;
+           }
+        }
       }
     };
 
