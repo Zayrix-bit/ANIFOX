@@ -9,12 +9,12 @@ export const getProviders = async (): Promise<string[]> => {
     const res = await fetch(`${API_URL}/info`);
     const data = await res.json();
     return data.providers || [
-      "reanime", "anizone", "animegg", "anikoto", "anineko", 
+      "mkissa", "reanime", "anizone", "animegg", "anikoto", "anineko", 
       "2dhive", "animedunya", "anidbapp"
     ];
   } catch (err) {
     console.error('Failed to fetch providers', err);
-    return ["reanime", "anizone", "animegg", "anikoto", "anineko", "2dhive", "animedunya", "anidbapp"];
+    return ["mkissa", "reanime", "anizone", "animegg", "anikoto", "anineko", "2dhive", "animedunya", "anidbapp"];
   }
 };
 
