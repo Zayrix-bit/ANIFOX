@@ -1317,7 +1317,7 @@ async function handleWatch(anilistId, audio, epNum, captcha = null) {
     .map(src => ({
       server: src.name || "HD",
       url: src.extractedUrl || src.url,
-      type: src.extractedType === 'hls' ? 'hls' : (src.extractedType === 'mp4' ? 'mp4' : 'embed'),
+      type: src.extractedType === 'hls' ? 'hls' : 'embed',
       embedUrl: src.url
     }));
 
