@@ -245,6 +245,7 @@ export default function Watch() {
       const fastProviders = ['anikoto', 'animegg'];
       const phase1 = orderedProviders.filter(p => fastProviders.includes(p));
       const phase2 = orderedProviders.filter(p => !fastProviders.includes(p));
+      let heldFallbackServer: ServerInstance | null = null;
 
       const fireProviders = (chunk: string[]) => {
         return chunk.map(provider => {
