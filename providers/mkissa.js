@@ -1304,12 +1304,22 @@ async function handleWatch(anilistId, audio, epNum, captcha = null) {
   const sources = await Promise.all((episode.sourceUrls || []).map(extractSource));
   sources.sort((a, b) => b.priority - a.priority);
   const epMeta = anizip?.episodes?.[String(epNum)] ?? {};
-  const streams = sources.map(src => ({
-    server: src.name || "HD",
-    url: src.extractedUrl || src.url,
-    type: src.extractedType === 'hls' ? 'hls' : (src.extractedType === 'mp4' ? 'mp4' : 'embed'),
-    embedUrl: src.url
-  }));
+  const streams = sources
+    .filter(src => {
+      if (src.extractedUrl) return true;
+      try {
+        const host = new URL(src.url).hostname.replace(/^www\./, "");
+        const supportedHosts = ["allanime.day", "mp4upload.com", "uns.bio", "ok.ru", "streamsb", "streamlare"];
+        if (supportedHosts.some(h => host.includes(h))) return false;
+      } catch (e) {}
+      return true;
+    })
+    .map(src => ({
+      server: src.name || "HD",
+      url: src.extractedUrl || src.url,
+      type: src.extractedType === 'hls' ? 'hls' : (src.extractedType === 'mp4' ? 'mp4' : 'embed'),
+      embedUrl: src.url
+    }));
 
   const data = {
     anilistId: Number(anilistId),
